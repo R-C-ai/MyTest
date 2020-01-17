@@ -25,6 +25,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.content.ContextCompat.*
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.hsiaoling.mytest.databinding.ActivityMainBinding
 import java.util.*
 
 
@@ -59,11 +60,11 @@ class MainActivity : AppCompatActivity() {
     )
 
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = FragmentActivity()
         setContentView(R.layout.activity_main)
+
     }
         fun addArticle() {
             if (new_article_content.value == null ||
@@ -95,34 +96,40 @@ class MainActivity : AppCompatActivity() {
 
         }
 
-        
+    
 
 
 
 
+    //----------------------------------------------------------------------------------------------
+//    fun addData(){
+//
+//    val articles = FirebaseFirestore.getInstance().collection("articles")
+//    // Create a new user with a first and last name
+//    val document = articles.document()
+//
+//    val data = hashSetOf(
+//        "author" to hashMapOf(
+//            "email" to "hsiao@gmail.com",
+//            "id" to "hsiao01",
+//            "name" to "HsiaoLing"
+//        ),
+//        "title" to "好冷的一天",
+//        "content" to "今天氣溫17度",
+//        "creatTime" to Calendar.getInstance().timeInMillis,
+//        "id" to document.id,
+//        "tag" to "Weather"
+//    )
+//        document.set(data)
+//
+//        articles.document().set(data).addOnCanceledListener {
+//        }
+//}
 
 
-//----------------------------------------------------------------------------------------------
-//        val db = FirebaseFirestore.getInstance()
-//        // Create a new user with a first and last name
-//val TAG = "HAHAHAH"
-//        val user = HashMap<String, Any>()
-//        user.put("first", "Ada")
-//        user.put("last", "Lovelace")
-//        user.put("born", 1815)
 
-// Add a new document with a generated ID
-//        db.collection("users")
-//            .add(user)
-//            .addOnSuccessListener { documentReference ->
-//                Log.d(
-//                    TAG,
-//                    "DocumentSnapshot added with ID: " + documentReference.id
-//                )
-//            }
-//            .addOnFailureListener { e -> Log.w(TAG, "Error adding document", e) }
 // READ
-//        db.collection("users")
+//        articles.collection("articles")
 //            .get()
 //            .addOnCompleteListener { task ->
 //                if (task.isSuccessful) {
