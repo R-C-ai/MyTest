@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.hsiaoling.mytest.AddArticletViewmodel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <EditText
+            android:id="@+id/edittext_article_title"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_margin="16dp"
+            android:textSize="18sp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:hint="article_title"
+            android:text="@={viewModel.new_article_title}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/edittext_article_author"
+            android:layout_width="180dp"
+            android:layout_height="40dp"
+            android:textSize="14sp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:hint="article_author"
+            android:text="@={viewModel.new_article_author}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/edittext_article_title" />
+
+        <EditText
+            android:id="@+id/edittext_article_creat_time"
+            android:layout_width="180dp"
+            android:layout_height="40dp"
+            android:textSize="14sp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:hint="article_creat_time"
+            android:text="@={viewModel.new_article_time}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/edittext_article_author" />
+
+        <EditText
+            android:id="@+id/edittext_article_tag"
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:background="@color/color888888"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="8dp"
+            android:hint="article_tag"
+            android:textSize="14sp"
+            android:text="@={viewModel.new_article_tag}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/edittext_article_title" />
+
+        <EditText
+            android:id="@+id/edittext_article_content"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+
+
+            android:gravity="top|left"
+            android:hint="article_content"
+            android:maxLines="2"
+            android:scrollbars="vertical"
+            android:text="@={viewModel.new_article_content}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/edittext_article_creat_time" />
+
+
+
+        <Button
+            android:id="@+id/button_writepost"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:text="add_article"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="30dp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:background="@color/colorAccent"
+            android:textColor="#fff"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintWidth_percent="0.7"
+
+            android:onClick="@{()->viewModel.addArticle()}"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
+
+<!--    android:enabled="@{viewModel.new_article_content == null || viewModel.new_article_content.empty || viewModel.new_article_title == null || viewModel.new_article_title.empty || viewModel.new_article_tag == null ? false:true}"-->
